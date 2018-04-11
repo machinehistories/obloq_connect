@@ -253,7 +253,7 @@ namespace Obloq {
     //% blockId=Obloq_setup
     //% block="Obloq setup | Wi-Fi: | Wi-Fi name : %SSID| Wi-Fi password: %PASSWORD| Iot service: | IOT_SERVER: %IOT_SERVER | IOT_PORT: %IOT_PORT | IOT_ID: %IOT_ID| IOT_PWD: %IOT_PWD| IOT_TOPIC: %IOT_TOPIC| Pin set: | Receiving data (green wire): %receive| Sending data (blue wire): %send"
     export function Obloq_setup(/*wifi*/SSID: string, PASSWORD: string,
-                                /*mqtt*/IOT_SERVER: string, IOT_PORT: string, IOT_ID: string, IOT_PWD: string, IOT_TOPIC: string,
+                                /*mqtt*/IOT_SERVER: string, IOT_PORT: number, IOT_ID: string, IOT_PWD: string, IOT_TOPIC: string,
                                 /*serial*/receive: SerialPin, send: SerialPin):
     void { 
         OBLOQ_SSID = SSID
