@@ -27,7 +27,7 @@ let DEBUG = false
 let OBLOQ_SSID        = ""
 let OBLOQ_PASSWORD    = ""
 //mqtt
-let OBLOQ_MQTT_PORT   = ""
+let OBLOQ_MQTT_PORT   = 1883
 let OBLOQ_MQTT_SERVER = ""
 let OBLOQ_IOT_PWD     = ""
 let OBLOQ_IOT_ID      = ""
