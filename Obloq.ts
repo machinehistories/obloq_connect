@@ -7,27 +7,27 @@
  *
  * @copyright	[DFRobot](http://www.dfrobot.com), 2016
  * @copyright	GNU Lesser General Public License
- *
+ *   
  * @author [email](1035868977@qq.com)
  * @version  V1.0
  * @date  2018-03-20
  */
 
 let DEBUG = false
-let MQTT_DEFAULT = true
+//let MQTT_DEFAULT = false
 
 //DFRobot easy iot
-const EASY_IOT_SERVER = "iot.dfrobot.com.cn"
-const EASY_IOT_PORT = 1883
+//const EASY_IOT_SERVER = "iot.dfrobot.com.cn"
+//const EASY_IOT_PORT = 1883
 //other iot
-const USER_IOT_SERVER = "-----------"
-const USER_IOT_PORT = 0
+//let USER_IOT_SERVER = ""
+//let USER_IOT_PORT = ""
 
 //wifi
 let OBLOQ_SSID        = ""
 let OBLOQ_PASSWORD    = ""
 //mqtt
-let OBLOQ_MQTT_PORT   = 0
+let OBLOQ_MQTT_PORT   = ""
 let OBLOQ_MQTT_SERVER = ""
 let OBLOQ_IOT_PWD     = ""
 let OBLOQ_IOT_ID      = ""
@@ -239,10 +239,11 @@ namespace Obloq {
     }
 
     /**
-	 * Two parallel stepper motors are executed simultaneously(DegreeDual).
      * @param SSID to SSID ,eg: "yourSSID"
      * @param PASSWORD to PASSWORD ,eg: "yourPASSWORD"
      * @param IOT_ID to IOT_ID ,eg: "yourIotId"
+	 * @param IOT_SERVER to IOT_SERVER ,eg: "yourIotServer"
+	 * @param IOT_PORT to IOT_PORT ,eg: "yourIotPort"
      * @param IOT_PWD to IOT_PWD ,eg: "yourIotPwd"
      * @param IOT_TOPIC to IOT_TOPIC ,eg: "yourIotTopic"
      * @param receive to receive ,eg: SerialPin.P1
@@ -250,20 +251,15 @@ namespace Obloq {
     */
     //% weight=102
     //% blockId=Obloq_setup
-    //% block="Obloq setup | Wi-Fi: | Wi-Fi name : %SSID| Wi-Fi password: %PASSWORD| Iot service: | IOT_ID: %IOT_ID| IOT_PWD: %IOT_PWD| IOT_TOPIC: %IOT_TOPIC| Pin set: | Receiving data (green wire): %receive| Sending data (blue wire): %send"
+    //% block="Obloq setup | Wi-Fi: | Wi-Fi name : %SSID| Wi-Fi password: %PASSWORD| Iot service: | IOT_SERVER: %IOT_SERVER | IOT_PORT: %IOT_PORT | IOT_ID: %IOT_ID| IOT_PWD: %IOT_PWD| IOT_TOPIC: %IOT_TOPIC| Pin set: | Receiving data (green wire): %receive| Sending data (blue wire): %send"
     export function Obloq_setup(/*wifi*/SSID: string, PASSWORD: string,
-                                /*mqtt*/IOT_ID: string, IOT_PWD: string, IOT_TOPIC: string,
+                                /*mqtt*/IOT_SERVER: string, IOT_PORT: string, IOT_ID: string, IOT_PWD: string, IOT_TOPIC: string,
                                 /*serial*/receive: SerialPin, send: SerialPin):
     void { 
         OBLOQ_SSID = SSID
         OBLOQ_PASSWORD = PASSWORD
-        if (MQTT_DEFAULT) {
-            OBLOQ_MQTT_SERVER = EASY_IOT_SERVER
-            OBLOQ_MQTT_PORT = EASY_IOT_PORT
-        } else { 
-            OBLOQ_MQTT_SERVER = USER_IOT_SERVER
-            OBLOQ_MQTT_PORT = USER_IOT_PORT
-        }
+        OBLOQ_MQTT_SERVER = IOT_SERVER
+        OBLOQ_MQTT_PORT = IOT_PORT
         OBLOQ_IOT_PWD = IOT_PWD
         OBLOQ_IOT_ID = IOT_ID
         OBLOQ_IOT_TOPIC = IOT_TOPIC
