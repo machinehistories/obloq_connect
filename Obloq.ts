@@ -13,7 +13,7 @@
  * @date  2018-03-20
  */
 
-let DEBUG = false
+let DEBUG = true
 //let MQTT_DEFAULT = false
 
 //DFRobot easy iot
